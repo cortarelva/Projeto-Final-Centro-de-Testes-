@@ -42,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pBoxUser = new System.Windows.Forms.PictureBox();
             this.tbExamsData = new System.Windows.Forms.TabPage();
+            this.certificacoesDataGridView = new System.Windows.Forms.DataGridView();
             this.lblCert = new System.Windows.Forms.Label();
             this.btnRegulamento = new System.Windows.Forms.Button();
             this.btnExameStart = new System.Windows.Forms.Button();
@@ -53,6 +54,7 @@
             this.tbPersonalData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxUser)).BeginInit();
             this.tbExamsData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.certificacoesDataGridView)).BeginInit();
             this.AlunotabControl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -206,6 +208,7 @@
             // tbExamsData
             // 
             this.tbExamsData.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tbExamsData.Controls.Add(this.certificacoesDataGridView);
             this.tbExamsData.Controls.Add(this.lblCert);
             this.tbExamsData.Controls.Add(this.btnRegulamento);
             this.tbExamsData.Controls.Add(this.btnExameStart);
@@ -221,18 +224,31 @@
             this.tbExamsData.TabIndex = 0;
             this.tbExamsData.Text = "Dados Exames";
             // 
+            // certificacoesDataGridView
+            // 
+            this.certificacoesDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.certificacoesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.certificacoesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.certificacoesDataGridView.Location = new System.Drawing.Point(482, 133);
+            this.certificacoesDataGridView.Name = "certificacoesDataGridView";
+            this.certificacoesDataGridView.Size = new System.Drawing.Size(436, 434);
+            this.certificacoesDataGridView.TabIndex = 12;
+            // 
             // lblCert
             // 
             this.lblCert.AutoSize = true;
-            this.lblCert.Location = new System.Drawing.Point(500, 154);
+            this.lblCert.Font = new System.Drawing.Font("Segoe UI Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCert.ForeColor = System.Drawing.Color.Teal;
+            this.lblCert.Location = new System.Drawing.Point(475, 93);
             this.lblCert.Name = "lblCert";
-            this.lblCert.Size = new System.Drawing.Size(102, 21);
+            this.lblCert.Size = new System.Drawing.Size(340, 37);
             this.lblCert.TabIndex = 11;
-            this.lblCert.Text = "Certificações ";
+            this.lblCert.Text = "As Minhas Certificações ";
             // 
             // btnRegulamento
             // 
-            this.btnRegulamento.Location = new System.Drawing.Point(28, 355);
+            this.btnRegulamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegulamento.Location = new System.Drawing.Point(27, 547);
             this.btnRegulamento.Name = "btnRegulamento";
             this.btnRegulamento.Size = new System.Drawing.Size(242, 71);
             this.btnRegulamento.TabIndex = 10;
@@ -245,7 +261,7 @@
             this.btnExameStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExameStart.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExameStart.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnExameStart.Location = new System.Drawing.Point(29, 202);
+            this.btnExameStart.Location = new System.Drawing.Point(28, 151);
             this.btnExameStart.Name = "btnExameStart";
             this.btnExameStart.Size = new System.Drawing.Size(241, 63);
             this.btnExameStart.TabIndex = 9;
@@ -256,21 +272,21 @@
             // lblSelecExame
             // 
             this.lblSelecExame.AutoSize = true;
-            this.lblSelecExame.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelecExame.Location = new System.Drawing.Point(24, 58);
+            this.lblSelecExame.Font = new System.Drawing.Font("Segoe UI Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSelecExame.ForeColor = System.Drawing.Color.Teal;
+            this.lblSelecExame.Location = new System.Drawing.Point(22, 51);
             this.lblSelecExame.Name = "lblSelecExame";
-            this.lblSelecExame.Size = new System.Drawing.Size(184, 30);
+            this.lblSelecExame.Size = new System.Drawing.Size(248, 37);
             this.lblSelecExame.TabIndex = 7;
             this.lblSelecExame.Text = "Selecionar Exame";
             // 
             // cmbSelectExame
             // 
             this.cmbSelectExame.FormattingEnabled = true;
-            this.cmbSelectExame.Location = new System.Drawing.Point(28, 91);
+            this.cmbSelectExame.Location = new System.Drawing.Point(28, 93);
             this.cmbSelectExame.Name = "cmbSelectExame";
             this.cmbSelectExame.Size = new System.Drawing.Size(242, 29);
             this.cmbSelectExame.TabIndex = 6;
-            this.cmbSelectExame.SelectedIndexChanged += new System.EventHandler(this.cmbSelectExame_SelectedIndexChanged);
             // 
             // lblUserName
             // 
@@ -308,6 +324,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pBoxUser)).EndInit();
             this.tbExamsData.ResumeLayout(false);
             this.tbExamsData.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.certificacoesDataGridView)).EndInit();
             this.AlunotabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -334,5 +351,6 @@
         private System.Windows.Forms.Button btnExameStart;
         private System.Windows.Forms.Label lblCert;
         private System.Windows.Forms.Button btnRegulamento;
+        private System.Windows.Forms.DataGridView certificacoesDataGridView;
     }
 }

@@ -9,7 +9,7 @@ namespace ProjetoFinal
     
     public class Respostas
     {
-        IGestorExames gestor;
+        //IGestorExames gestor;
 
         public string nif;
         public string numPergunta;
@@ -24,8 +24,6 @@ namespace ProjetoFinal
             this.resposta = resposta;
             this.exame = exame;
         }
-
-
 
         public override string ToString()
         {

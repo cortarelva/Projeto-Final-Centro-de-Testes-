@@ -23,7 +23,31 @@ namespace ProjetoFinal
             return connection;
         }
 
-       
+        public void InserirPergunta(string pergunta, string respostaA, string respostaB, string respostaC, string respostaD, string respostaCorreta, string exame, int numPergunta)
+        {
+            SqlCommand command = new SqlCommand("InsertPergunta", connection);
+
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@Pergunta", System.Data.SqlDbType.VarChar, 200).Value = pergunta;
+            command.Parameters.Add("@RespostaA", System.Data.SqlDbType.VarChar, 200).Value = respostaA;
+            command.Parameters.Add("@RespostaB", System.Data.SqlDbType.VarChar, 200).Value = respostaB;
+            command.Parameters.Add("@RespostaC", System.Data.SqlDbType.VarChar, 200).Value = respostaC;
+            command.Parameters.Add("@RespostaD", System.Data.SqlDbType.VarChar, 200).Value = respostaD;
+            command.Parameters.Add("@RespostaCerta", System.Data.SqlDbType.VarChar, 50).Value = respostaCorreta;
+            command.Parameters.Add("@Exame", System.Data.SqlDbType.VarChar, 50).Value = exame;
+            command.Parameters.Add("@numPergunta", System.Data.SqlDbType.Int).Value = numPergunta;
+            connection.Open();
+
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("Pergunta inserida");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Algo correu mal!", ex.Message);
+            }
+            connection.Close();
+        }
     }
-   
 }

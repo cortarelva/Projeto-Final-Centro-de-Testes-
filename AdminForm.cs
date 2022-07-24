@@ -13,8 +13,7 @@ namespace ProjetoFinal
 {
     public partial class AdminForm : Form
     {
-        IGestorUtilizadores gestor;
-       
+      
         public string Nome;
         public string Nif;
         public string User;
@@ -26,7 +25,6 @@ namespace ProjetoFinal
             InitializeComponent();
         }
         
-        //mostra dados do utilizador
         public AdminForm(string nome, string nif, string user, string pass)
         {
             InitializeComponent();
@@ -42,14 +40,10 @@ namespace ProjetoFinal
 
             lblAdminName.Text = Nome;
 
-            ///////////////////////////////
-            // Listar Utilizadores Query //
-            ///////////////////////////////
             ListaUtilizadores();
+            listaExames();
+            selecionaExame();
         }
-
-       
-        
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -118,13 +112,133 @@ namespace ProjetoFinal
             GestorUtilizadores gestor = new GestorUtilizadores();
             gestor.AtualizaDados(nif, nome, user, pass, isAdmin);
         }
-
+        
         private void btnEliminaUtilizador_Click(object sender, EventArgs e)
         {
             int nif = int.Parse(txtAlterarNif.Text);
             
             GestorUtilizadores gestor = new GestorUtilizadores();
             gestor.EliminaUtilizador(nif);
+            ListaUtilizadores();
+        }
+
+        private void selecionaExame()
+        {
+            GestorExames gestor = new GestorExames();
+            string conn = gestor.sqlString();
+            SqlConnection connection = new SqlConnection((@conn));
+
+            SqlCommand command = new SqlCommand("SelectExame", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            connection.Open();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                cmbSelectExame.Items.Add(reader.GetValue(0).ToString());
+            }
+            connection.Close();
+        }
+
+
+        private void btnAdicionarPergunta_Click(object sender, EventArgs e)
+        {
+            string pergunta = txtPergunta.Text;
+            string respostaA = txtRespA.Text;
+            string respostaB = txtRespB.Text;
+            string respostaC = txtRespC.Text;
+            string respostaD = txtRespD.Text;
+            string respostaCorreta = txtRespCorreta.Text;
+            string exame = cmbSelectExame.SelectedItem.ToString();
+            int numPergunta = int.Parse(nupdNumPergunta.Text);
+
+            GestorExames gestorE = new GestorExames();
+            gestorE.InserirPergunta(pergunta, respostaA, respostaB, respostaC, respostaD, respostaCorreta, exame, numPergunta);
+
+            nupdNumPergunta.Value = nupdNumPergunta.Value + 1;
+        }
+      
+        private void nupdNumPergunta_ValueChanged(object sender, EventArgs e)
+        {
+            if(nupdNumPergunta.Value < 0 || nupdNumPergunta.Value > 30)
+            {
+                nupdNumPergunta.Value = 0;
+            }
+            limpaCasas();
+        }
+        
+        private void limpaCasas()
+        {
+            txtPergunta.Text = "";
+            txtRespA.Text = "";
+            txtRespB.Text = "";
+            txtRespC.Text = "";
+            txtRespD.Text = "";
+            txtRespCorreta.Text = "";
+        }
+        
+        private void listaExames()
+        {
+            GestorExames gestor = new GestorExames();
+            string conn = gestor.sqlString();
+            SqlConnection connection = new SqlConnection((@conn));
+
+            SqlCommand query = new SqlCommand("Select Exame from Exames", connection);
+            //query.CommandType = System.Data.CommandType.StoredProcedure;
+
+            connection.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(query);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            examesDataGridView.DataSource = table;
+            connection.Close();
+        }
+
+        private void btnAddExame_Click(object sender, EventArgs e)
+        {
+            GestorExames gestor = new GestorExames();
+            string conn = gestor.sqlString();
+            SqlConnection connection = new SqlConnection((@conn));
+
+            SqlCommand command = new SqlCommand("InsertExame", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@Exame", txtAddExame.Text);
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+                listaExames();
+                MessageBox.Show("Exame adicionado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nao foi possivel adicionar Exame: " + ex.Message);
+            }
+        }
+
+        private void btnRemoveExame_Click(object sender, EventArgs e)
+        {
+            GestorExames gestor = new GestorExames();
+            string conn = gestor.sqlString();
+            SqlConnection connection = new SqlConnection((@conn));
+
+            SqlCommand command = new SqlCommand("DeleteExame", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@Exame", examesDataGridView.SelectedCells[0].Value.ToString());
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+                listaExames();
+                MessageBox.Show("Exame removido com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nao foi possivel remover Exame: " + ex.Message);
+            }
         }
     }
 }

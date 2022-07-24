@@ -72,7 +72,7 @@ namespace ProjetoFinal
             command.Parameters.Add("@NomeUtilizador", System.Data.SqlDbType.VarChar, 50).Value = user;
             command.Parameters.Add("@Password", System.Data.SqlDbType.VarChar, 50).Value = pass;
             command.Parameters.Add("@Admin", System.Data.SqlDbType.Bit).Value = isAdmin;
-
+            
             try
             {
                 connection.Open();
@@ -111,7 +111,7 @@ namespace ProjetoFinal
                 }
                 catch
                 {
-                    MessageBox.Show("Algo correu mal no atualizaPassword!");
+                    MessageBox.Show("Algo correu mal!");
                 }
             }
         }
@@ -129,7 +129,6 @@ namespace ProjetoFinal
                 numAdmin = 0;
             }
             
-
             string message = "Alterar os dados?";
             string title = "Alterar Dados";
 
@@ -155,7 +154,7 @@ namespace ProjetoFinal
                 }
                 catch
                 {
-                    MessageBox.Show("Algo correu mal no atualizaDados!");
+                    MessageBox.Show("Algo correu mal!");
                 }
             }
         }
@@ -179,7 +178,7 @@ namespace ProjetoFinal
             }
             catch
             {
-                MessageBox.Show("Algo correu mal no eliminaUtilizador!");
+                MessageBox.Show("Algo correu mal!");
             }
         }
     }

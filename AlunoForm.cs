@@ -13,7 +13,7 @@ namespace ProjetoFinal
 {
     public partial class AlunoForm : Form
     {
-        IGestorUtilizadores gestor;
+        //IGestorUtilizadores gestor;
         
         public string Nome;
         public string Nif;
@@ -30,13 +30,14 @@ namespace ProjetoFinal
         public AlunoForm(string nome, string nif, string user, string pass)
         {
             InitializeComponent();
+            
             this.Nome = nome;
             this.Nif = nif;
             this.User = user;
             this.Pass = pass;
 
             carregaDadosUtilizador( nome, nif, user, pass);
-            
+            ListaCertificacoes(nif);
             selecionaExame(); 
         }
 
@@ -49,19 +50,13 @@ namespace ProjetoFinal
 
             lblUserName.Text = "Está logado como: " + Nome;
         }
-
         
-       
-        
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
             this.Dispose();
         }
-
-
-
+        
         private void btnAlunoAtualizaPass_Click(object sender, EventArgs e)
         {
             string nif = txtNif.Text;
@@ -74,10 +69,9 @@ namespace ProjetoFinal
         
        private void selecionaExame()
         {
-            
             GestorExames gestor = new GestorExames();
             string conn = gestor.sqlString();
-            SqlConnection connection = new SqlConnection((@conn));
+            SqlConnection connection = new SqlConnection(@conn);
 
             SqlCommand command = new SqlCommand("SelectExame", connection);
             command.CommandType = CommandType.StoredProcedure;
@@ -89,24 +83,36 @@ namespace ProjetoFinal
             {
                 cmbSelectExame.Items.Add(reader.GetValue(0).ToString());
             }
-            connection.Close();
-            
-        }
-
-        private void cmbSelectExame_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
+            connection.Close();  
         }
 
         private void btnExameStart_Click(object sender, EventArgs e)
         {
-            string exame = cmbSelectExame.SelectedItem.ToString();
-            string nif = txtNif.Text;
-            ExameForm exameForm = new ExameForm(exame, nif);
-            exameForm.Show();
-            
-        }
+            try
+            {
+                string exame = cmbSelectExame.SelectedItem.ToString();
+                string nif = txtNif.Text;
+                ExameForm exameForm = new ExameForm(exame, nif);
+                exameForm.Show();
+            }
+            catch
+            {
+                MessageBox.Show("Deve selecionar um exame primeiro");
+            }
+        }  
+        private void ListaCertificacoes(string nif)
+        {
+            GestorUtilizadores gestor = new GestorUtilizadores();
+            string conn = gestor.sqlString();
+            SqlConnection connection = new SqlConnection((@conn));
 
-        
+            SqlCommand command = new SqlCommand("Select Exame, Nota, Data from Notas where nif =" + nif, connection);
+            connection.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            certificacoesDataGridView.DataSource = table;
+            connection.Close();
+        }
     }   
 }
