@@ -51,10 +51,10 @@ namespace ProjetoFinal
             lblUserName.Text = "Está logado como: " + Nome;
         }
         
-        private void btnLogout_Click(object sender, EventArgs e)
+        public void btnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
-            this.Dispose();
+            this.Dispose(); 
         }
         
         private void btnAlunoAtualizaPass_Click(object sender, EventArgs e)

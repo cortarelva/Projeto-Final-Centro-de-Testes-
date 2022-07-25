@@ -108,7 +108,7 @@ namespace ProjetoFinal
             string conn = gestor.sqlString();
             SqlConnection connection = new SqlConnection(@conn);
             
-            SqlCommand command = new SqlCommand("Insert into Notas values(@Nif, @Exame, @Nota, @Certificado)", connection);
+            SqlCommand command = new SqlCommand("Insert into Notas values(@Nif, @Exame, @Nota, @Certificado, @Data)", connection);
             command.Parameters.AddWithValue("@Nif", nif);
             command.Parameters.AddWithValue("@Exame", exame);
             command.Parameters.AddWithValue("@Nota", percent);
@@ -221,74 +221,79 @@ namespace ProjetoFinal
 
         public void emiteCertificado(string nif, double percent)
         {
-            GestorExames gestor = new GestorExames();
-            string conn = gestor.sqlString();
-            SqlConnection connection = new SqlConnection(@conn);
-            SqlCommand command = new SqlCommand("Select nome from Utilizador where Nif = '" + nif + "'", connection);
+                GestorExames gestor = new GestorExames();
+                string conn = gestor.sqlString();
+                SqlConnection connection = new SqlConnection(@conn);
             try
             {
                 connection.Open();
+                SqlCommand command = new SqlCommand("Select Nome from Utilizador where Nif = @nif", connection);
+                command.Parameters.AddWithValue("@nif", nif);
                 SqlDataReader reader = command.ExecuteReader();
-                string nomeAluno = reader.GetString(0);
-
-                string loadPath = @"C:\Development\Cet-programacao\C#\ProjetoFinal\documentos\certificate.docx";
-                // Load a document intoDocumentCore.
-                DocumentCore doc = DocumentCore.Load(loadPath);
-
-                try
+                
+                while (reader.Read())
                 {
-                    Regex regexNome = new Regex(@"nome", RegexOptions.IgnoreCase);
+                    string nomeAluno = reader["Nome"].ToString();
+                
+                    string loadPath = @"C:\Development\Cet-programacao\C#\ProjetoFinal\documentos\certificate.docx";
+                    // Load a document intoDocumentCore.
+                    DocumentCore doc = DocumentCore.Load(loadPath);
 
-                    foreach (ContentRange item in doc.Content.Find(regexNome).Reverse())
-                    {
-                        item.Replace(nomeAluno);
-                    }
                     try
                     {
-                        Regex regexExame = new Regex(@"curso", RegexOptions.IgnoreCase);
+                        Regex regexNome = new Regex(@"nome", RegexOptions.IgnoreCase);
 
-                        foreach (ContentRange item in doc.Content.Find(regexExame).Reverse())
+                        foreach (ContentRange item in doc.Content.Find(regexNome).Reverse())
                         {
-                            item.Replace(exame);
+                            item.Replace(nomeAluno);
                         }
                         try
                         {
-                            Regex regexNota = new Regex(@"nota", RegexOptions.IgnoreCase);
+                            Regex regexExame = new Regex(@"curso", RegexOptions.IgnoreCase);
 
-                            foreach (ContentRange item in doc.Content.Find(regexNota).Reverse())
+                            foreach (ContentRange item in doc.Content.Find(regexExame).Reverse())
                             {
-                                item.Replace(percent.ToString());
+                                item.Replace(exame);
+                            }
+                            try
+                            {
+                                Regex regexNota = new Regex(@"nota", RegexOptions.IgnoreCase);
+
+                                foreach (ContentRange item in doc.Content.Find(regexNota).Reverse())
+                                {
+                                    item.Replace(percent.ToString());
+                                }
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Erro ao substituir a nota");
                             }
                         }
                         catch
                         {
-                            MessageBox.Show("Erro ao substituir a nota");
+                            MessageBox.Show("Erro ao substituir o exame");
                         }
                     }
                     catch
                     {
-                        MessageBox.Show("Erro ao substituir o exame");
+                        MessageBox.Show("Erro ao substituir o nome");
+                    }
+
+                    string savePath = @"C:\Users\Public\Desktop\Certificado " + nomeAluno + ".pdf";
+                    doc.Save(savePath, new PdfSaveOptions());
+
+                    // Open the result for demonstration purposes.
+                    //System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(loadPath) { UseShellExecute = true });
+                     System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(savePath) { UseShellExecute = true });              
                     }
                 }
-                catch
-                {
-                    MessageBox.Show("Erro ao substituir o nome");
-                }
-
-                string savePath = @"C:\Users\Public\Desktop\Certificado " + nomeAluno + ".pdf";
-                doc.Save(savePath, new PdfSaveOptions());
-
-                // Open the result for demonstration purposes.
-                //System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(loadPath) { UseShellExecute = true });
-                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(savePath) { UseShellExecute = true });
-            }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao emitir certificado: " + ex.Message);
             }
             finally
             {
-                connection.Close();
+                connection.Close(); 
             }
         }
     }

@@ -12,6 +12,7 @@ namespace ProjetoFinal
 {
     public partial class Form1 : Form
     {
+        public static int op = 1;
         public Form1()
         {
             InitializeComponent();
@@ -21,9 +22,10 @@ namespace ProjetoFinal
         {
             Form form1 = this; 
         }
+        
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+             
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -42,11 +44,17 @@ namespace ProjetoFinal
 
         public void btnLoginWindow_Click(object sender, EventArgs e)
         {
-            LoginForm login = new LoginForm(this);
-            login.MdiParent = this;
-            login.Show();
+            if(op == 1)
+            {
+                LoginForm login = new LoginForm(this);
+                login.MdiParent = this;
+                login.Show();
+                op = 0;
+            }
+            else
+            {
+                MessageBox.Show("Tem de fazer logout primeiro");
+            }
         }
-
-       
     }
 }

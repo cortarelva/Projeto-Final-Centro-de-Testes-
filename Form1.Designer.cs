@@ -87,6 +87,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(189, 754);
             this.panel1.TabIndex = 3;
+            
             // 
             // pictureBox1
             // 

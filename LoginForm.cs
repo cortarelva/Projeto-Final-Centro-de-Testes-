@@ -27,6 +27,7 @@ namespace ProjetoFinal
 
         private void lblCloseLogin_Click(object sender, EventArgs e)
         {
+            Form1.op = 1;
             this.Close();
         }
 
@@ -35,11 +36,8 @@ namespace ProjetoFinal
             string username = txtUserName.Text;
             string password = txtPassword.Text;
 
-
             GestorUtilizadores gestor = new GestorUtilizadores();
             gestor.CarregaUtilizador(username, password);
-
-
             string[] respArr = gestor.CarregaUtilizador(username, password).Split(',');
 
             if (respArr.Length < 5)
