@@ -17,13 +17,10 @@ namespace ProjetoFinal
 {
     public partial class ExameForm : Form
     {
-        IGestorExames gestor;
-
         int perguntaNum = 1;// inicializa as perguntas pelo numero 1
         string exame;
         string nif;
         
-
         double pontos = 0.00;
         int respCertas = 0;
         
@@ -39,9 +36,8 @@ namespace ProjetoFinal
             this.nif = nif;
             carregaPergunta();
             lblNumPergunta.Text = perguntaNum.ToString();
-            
+            lblExameNome.Text = exame;
         }
-
 
         public string Exame { get; set; }
         public string Nif { get; set; }
@@ -130,6 +126,7 @@ namespace ProjetoFinal
             }
         }
 
+        //metodo incompleto, não utilizar
         private void btnAnterior_Click(object sender, EventArgs e)
         {
             perguntaNum--;
@@ -139,8 +136,9 @@ namespace ProjetoFinal
             
             if(perguntaNum == 1)
             {
-            perguntaNum = 1;
-            btnAnterior.Enabled = false;
+                perguntaNum = 1;
+                lblNumPergunta.Text = perguntaNum.ToString();
+                btnAnterior.Enabled = false;
             }
         }
 
@@ -279,7 +277,7 @@ namespace ProjetoFinal
                         MessageBox.Show("Erro ao substituir o nome");
                     }
 
-                    string savePath = @"C:\Users\Public\Desktop\Certificado " + nomeAluno + ".pdf";
+                    string savePath = @"C:\Users\Public\Desktop\Certificado " + exame + " - " + nomeAluno + ".pdf";
                     doc.Save(savePath, new PdfSaveOptions());
 
                     // Open the result for demonstration purposes.

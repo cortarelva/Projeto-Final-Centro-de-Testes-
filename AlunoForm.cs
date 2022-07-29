@@ -13,19 +13,15 @@ namespace ProjetoFinal
 {
     public partial class AlunoForm : Form
     {
-        //IGestorUtilizadores gestor;
-        
         public string Nome;
         public string Nif;
         public string User;
         public string Pass;
         
-        
         public AlunoForm()
         {
             InitializeComponent();
         }
-
 
         public AlunoForm(string nome, string nif, string user, string pass)
         {
@@ -66,8 +62,8 @@ namespace ProjetoFinal
             gestor.AtualizaPassword(int.Parse(nif), Password);
 
         }
-        
-       private void selecionaExame()
+       
+        private void selecionaExame()
         {
             GestorExames gestor = new GestorExames();
             string conn = gestor.sqlString();

@@ -13,7 +13,6 @@ namespace ProjetoFinal
 {
     public partial class AdminForm : Form
     {
-      
         public string Nome;
         public string Nif;
         public string User;

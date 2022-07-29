@@ -15,7 +15,6 @@ namespace ProjetoFinal
             this.isAdmin = isAdmin;
         }
 
-
         public override SqlCommand ComandoAtualizarPassword()
         {
             SqlCommand command = new SqlCommand("UPDATE Utilizador SET password = @password WHERE username = @username");

@@ -23,11 +23,6 @@ namespace ProjetoFinal
             Form form1 = this; 
         }
         
-        private void Form1_Load(object sender, EventArgs e)
-        {
-             
-        }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             string message = "Tem certeza que quer terminar o programa?";

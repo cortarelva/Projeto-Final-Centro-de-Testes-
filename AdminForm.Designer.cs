@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.Button btnLogout;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.examsTab = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -246,8 +247,18 @@
             this.examesDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.examesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.examesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.examesDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.examesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.examesDataGridView.Location = new System.Drawing.Point(23, 66);
             this.examesDataGridView.Name = "examesDataGridView";
+            this.examesDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.examesDataGridView.Size = new System.Drawing.Size(226, 418);
             this.examesDataGridView.TabIndex = 0;
             // 
@@ -838,9 +849,11 @@
             this.usersDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.usersDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.usersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.usersDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.usersDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.usersDataGridView.Location = new System.Drawing.Point(3, 3);
             this.usersDataGridView.Name = "usersDataGridView";
+            this.usersDataGridView.ReadOnly = true;
             this.usersDataGridView.Size = new System.Drawing.Size(1004, 395);
             this.usersDataGridView.TabIndex = 2;
             this.usersDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersDataGridView_CellClick);

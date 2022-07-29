@@ -13,8 +13,6 @@ namespace ProjetoFinal
 {
     public partial class LoginForm : Form
     {
-        IGestorUtilizadores gestor;
-
         Form frm1 = null;
         
         public LoginForm(Form form1)
@@ -23,8 +21,6 @@ namespace ProjetoFinal
             frm1 = form1;
         }
        
-
-
         private void lblCloseLogin_Click(object sender, EventArgs e)
         {
             Form1.op = 1;
@@ -69,7 +65,6 @@ namespace ProjetoFinal
             }
         }
 
-        
         private void btnShowHidePassword_Click(object sender, EventArgs e)
         {
             if (txtPassword.PasswordChar == '*')

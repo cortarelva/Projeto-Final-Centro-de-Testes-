@@ -42,16 +42,25 @@
             this.rbtnRespostaC = new System.Windows.Forms.RadioButton();
             this.rbtnRespostaD = new System.Windows.Forms.RadioButton();
             this.btnVerResultado = new System.Windows.Forms.Button();
+            this.lblExameNome = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblExit
             // 
             this.lblExit.AutoSize = true;
+            this.lblExit.BackColor = System.Drawing.Color.AliceBlue;
+            this.lblExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblExit.Font = new System.Drawing.Font("Segoe UI Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExit.ForeColor = System.Drawing.Color.Crimson;
             this.lblExit.Location = new System.Drawing.Point(1158, 22);
             this.lblExit.Name = "lblExit";
-            this.lblExit.Size = new System.Drawing.Size(31, 13);
+            this.lblExit.Size = new System.Drawing.Size(47, 13);
             this.lblExit.TabIndex = 0;
-            this.lblExit.Text = "EXIT";
+            this.lblExit.Text = "EXIT ->";
             this.lblExit.Click += new System.EventHandler(this.lblExit_Click);
             // 
             // lblPergunta
@@ -118,7 +127,7 @@
             this.btnProxima.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProxima.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProxima.ForeColor = System.Drawing.Color.Black;
-            this.btnProxima.Location = new System.Drawing.Point(480, 603);
+            this.btnProxima.Location = new System.Drawing.Point(430, 602);
             this.btnProxima.Name = "btnProxima";
             this.btnProxima.Size = new System.Drawing.Size(223, 78);
             this.btnProxima.TabIndex = 10;
@@ -128,12 +137,17 @@
             // 
             // btnAnterior
             // 
+            this.btnAnterior.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnAnterior.Enabled = false;
+            this.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnterior.Font = new System.Drawing.Font("Segoe UI Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnterior.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnAnterior.Location = new System.Drawing.Point(62, 603);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(223, 78);
             this.btnAnterior.TabIndex = 11;
-            this.btnAnterior.Text = "ANTERIOR";
-            this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Text = "BACK";
+            this.btnAnterior.UseVisualStyleBackColor = false;
             this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // lblNumPergunta
@@ -206,12 +220,67 @@
             this.btnVerResultado.UseVisualStyleBackColor = false;
             this.btnVerResultado.Click += new System.EventHandler(this.btnVerResultado_Click);
             // 
+            // lblExameNome
+            // 
+            this.lblExameNome.AutoSize = true;
+            this.lblExameNome.Font = new System.Drawing.Font("Segoe UI Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExameNome.Location = new System.Drawing.Point(104, 95);
+            this.lblExameNome.Name = "lblExameNome";
+            this.lblExameNome.Size = new System.Drawing.Size(44, 37);
+            this.lblExameNome.TabIndex = 22;
+            this.lblExameNome.Text = "...";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(366, 353);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 32);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "A";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(366, 396);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 32);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "B";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(366, 439);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 32);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "C";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(366, 482);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(32, 32);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "D";
+            // 
             // ExameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1230, 760);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(1249, 775);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblExameNome);
             this.Controls.Add(this.btnVerResultado);
             this.Controls.Add(this.rbtnRespostaD);
             this.Controls.Add(this.rbtnRespostaC);
@@ -252,5 +321,10 @@
         private System.Windows.Forms.RadioButton rbtnRespostaC;
         private System.Windows.Forms.RadioButton rbtnRespostaD;
         private System.Windows.Forms.Button btnVerResultado;
+        private System.Windows.Forms.Label lblExameNome;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

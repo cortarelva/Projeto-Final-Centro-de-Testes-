@@ -9,8 +9,6 @@ namespace ProjetoFinal
     
     public class Respostas
     {
-        //IGestorExames gestor;
-
         public string nif;
         public string numPergunta;
         public string resposta;

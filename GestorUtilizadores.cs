@@ -11,8 +11,6 @@ namespace ProjetoFinal
 {
     class GestorUtilizadores : IGestorUtilizadores
     {
-
-        
         SqlConnection connection;
         
         public GestorUtilizadores()
@@ -82,7 +80,7 @@ namespace ProjetoFinal
             }
             catch
             {
-                MessageBox.Show("Algo correu mal no InsertUser!");
+                MessageBox.Show("Algo correu mal!");
             }  
         }
         

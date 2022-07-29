@@ -40,11 +40,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pBoxUser = new System.Windows.Forms.PictureBox();
             this.tbExamsData = new System.Windows.Forms.TabPage();
             this.certificacoesDataGridView = new System.Windows.Forms.DataGridView();
             this.lblCert = new System.Windows.Forms.Label();
-            this.btnRegulamento = new System.Windows.Forms.Button();
             this.btnExameStart = new System.Windows.Forms.Button();
             this.lblSelecExame = new System.Windows.Forms.Label();
             this.cmbSelectExame = new System.Windows.Forms.ComboBox();
@@ -52,7 +50,6 @@
             this.AlunotabControl = new System.Windows.Forms.TabControl();
             btnLogout = new System.Windows.Forms.Button();
             this.tbPersonalData.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoxUser)).BeginInit();
             this.tbExamsData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.certificacoesDataGridView)).BeginInit();
             this.AlunotabControl.SuspendLayout();
@@ -89,7 +86,6 @@
             this.tbPersonalData.Controls.Add(this.label3);
             this.tbPersonalData.Controls.Add(this.label2);
             this.tbPersonalData.Controls.Add(this.label1);
-            this.tbPersonalData.Controls.Add(this.pBoxUser);
             this.tbPersonalData.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPersonalData.ForeColor = System.Drawing.SystemColors.Desktop;
             this.tbPersonalData.Location = new System.Drawing.Point(4, 30);
@@ -104,7 +100,7 @@
             this.txtNif.BackColor = System.Drawing.Color.Gainsboro;
             this.txtNif.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNif.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNif.Location = new System.Drawing.Point(411, 118);
+            this.txtNif.Location = new System.Drawing.Point(264, 125);
             this.txtNif.Name = "txtNif";
             this.txtNif.Size = new System.Drawing.Size(170, 20);
             this.txtNif.TabIndex = 9;
@@ -112,10 +108,11 @@
             // 
             // txtPass
             // 
-            this.txtPass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass.Location = new System.Drawing.Point(411, 211);
+            this.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass.Location = new System.Drawing.Point(264, 218);
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(170, 27);
+            this.txtPass.Size = new System.Drawing.Size(170, 22);
             this.txtPass.TabIndex = 6;
             // 
             // txtUser
@@ -123,7 +120,7 @@
             this.txtUser.BackColor = System.Drawing.Color.Gainsboro;
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUser.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.Location = new System.Drawing.Point(411, 163);
+            this.txtUser.Location = new System.Drawing.Point(264, 170);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(170, 20);
             this.txtUser.TabIndex = 4;
@@ -134,19 +131,20 @@
             this.txtUserNome.BackColor = System.Drawing.Color.Gainsboro;
             this.txtUserNome.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUserNome.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserNome.Location = new System.Drawing.Point(411, 74);
+            this.txtUserNome.Location = new System.Drawing.Point(264, 81);
             this.txtUserNome.Name = "txtUserNome";
-            this.txtUserNome.Size = new System.Drawing.Size(285, 20);
+            this.txtUserNome.Size = new System.Drawing.Size(462, 20);
             this.txtUserNome.TabIndex = 1;
             this.txtUserNome.Text = "...";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(325, 117);
+            this.label4.Font = new System.Drawing.Font("Segoe UI Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Teal;
+            this.label4.Location = new System.Drawing.Point(178, 124);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 20);
+            this.label4.Size = new System.Drawing.Size(32, 20);
             this.label4.TabIndex = 8;
             this.label4.Text = "Nif";
             // 
@@ -156,7 +154,7 @@
             this.btnAlunoAtualizaPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlunoAtualizaPass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlunoAtualizaPass.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnAlunoAtualizaPass.Location = new System.Drawing.Point(621, 205);
+            this.btnAlunoAtualizaPass.Location = new System.Drawing.Point(474, 212);
             this.btnAlunoAtualizaPass.Name = "btnAlunoAtualizaPass";
             this.btnAlunoAtualizaPass.Size = new System.Drawing.Size(140, 36);
             this.btnAlunoAtualizaPass.TabIndex = 7;
@@ -167,50 +165,41 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(325, 214);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Teal;
+            this.label3.Location = new System.Drawing.Point(178, 221);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 20);
+            this.label3.Size = new System.Drawing.Size(81, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Password";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(325, 162);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Teal;
+            this.label2.Location = new System.Drawing.Point(178, 169);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 20);
+            this.label2.Size = new System.Drawing.Size(81, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Username";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(325, 71);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Teal;
+            this.label1.Location = new System.Drawing.Point(178, 78);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 20);
+            this.label1.Size = new System.Drawing.Size(53, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nome";
-            // 
-            // pBoxUser
-            // 
-            this.pBoxUser.Image = global::ProjetoFinal.Properties.Resources.testImg;
-            this.pBoxUser.InitialImage = global::ProjetoFinal.Properties.Resources.testImg;
-            this.pBoxUser.Location = new System.Drawing.Point(107, 68);
-            this.pBoxUser.Name = "pBoxUser";
-            this.pBoxUser.Size = new System.Drawing.Size(151, 153);
-            this.pBoxUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pBoxUser.TabIndex = 0;
-            this.pBoxUser.TabStop = false;
             // 
             // tbExamsData
             // 
             this.tbExamsData.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbExamsData.Controls.Add(this.certificacoesDataGridView);
             this.tbExamsData.Controls.Add(this.lblCert);
-            this.tbExamsData.Controls.Add(this.btnRegulamento);
             this.tbExamsData.Controls.Add(this.btnExameStart);
             this.tbExamsData.Controls.Add(this.lblSelecExame);
             this.tbExamsData.Controls.Add(this.cmbSelectExame);
@@ -244,16 +233,6 @@
             this.lblCert.Size = new System.Drawing.Size(340, 37);
             this.lblCert.TabIndex = 11;
             this.lblCert.Text = "As Minhas Certificações ";
-            // 
-            // btnRegulamento
-            // 
-            this.btnRegulamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegulamento.Location = new System.Drawing.Point(27, 547);
-            this.btnRegulamento.Name = "btnRegulamento";
-            this.btnRegulamento.Size = new System.Drawing.Size(242, 71);
-            this.btnRegulamento.TabIndex = 10;
-            this.btnRegulamento.Text = "Regulamento";
-            this.btnRegulamento.UseVisualStyleBackColor = true;
             // 
             // btnExameStart
             // 
@@ -321,7 +300,6 @@
             this.Text = "AlunoForm";
             this.tbPersonalData.ResumeLayout(false);
             this.tbPersonalData.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoxUser)).EndInit();
             this.tbExamsData.ResumeLayout(false);
             this.tbExamsData.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.certificacoesDataGridView)).EndInit();
@@ -342,7 +320,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pBoxUser;
         private System.Windows.Forms.TabPage tbExamsData;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.TabControl AlunotabControl;
@@ -350,7 +327,6 @@
         private System.Windows.Forms.ComboBox cmbSelectExame;
         private System.Windows.Forms.Button btnExameStart;
         private System.Windows.Forms.Label lblCert;
-        private System.Windows.Forms.Button btnRegulamento;
         private System.Windows.Forms.DataGridView certificacoesDataGridView;
     }
 }
