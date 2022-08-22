@@ -21,8 +21,8 @@ namespace ProjetoFinal
         string exame;
         string nif;
         
-        double pontos = 0.00;
-        int respCertas = 0;
+        double pontos = 3.33;
+        int respCertas = 1;
         
         public ExameForm()
         {
@@ -55,9 +55,17 @@ namespace ProjetoFinal
              
             if (selecionaResposta().ToString() == carregaPergunta().ToString())
             {
-                pontos += 3.33;
-                respCertas += 1;
-                //MessageBox.Show("Pontos: " + pontos+ "Resp certas: "+ respCertas);
+                if(perguntaNum == 1)
+                {
+                    MessageBox.Show("Pontos: " + pontos + "Resp certas: " + respCertas);
+                }
+                else if(perguntaNum > 1)
+                {
+                    pontos += 3.33;
+                    respCertas += 1;
+                    MessageBox.Show("Pontos: " + pontos + "Resp certas: " + respCertas);
+                }
+                
             }
             limpaBotoesResposta();
             
@@ -126,20 +134,33 @@ namespace ProjetoFinal
             }
         }
 
-        //metodo incompleto, não utilizar
         private void btnAnterior_Click(object sender, EventArgs e)
         {
             perguntaNum--;
             carregaPergunta();
             lblNumPergunta.Text = perguntaNum.ToString();
-            btnProxima.Enabled = true;  
-            
-            if(perguntaNum == 1)
+            btnProxima.Enabled = true;
+
+            if(perguntaNum == respCertas)
             {
-                perguntaNum = 1;
-                lblNumPergunta.Text = perguntaNum.ToString();
-                btnAnterior.Enabled = false;
+                pontos -= 3.33;
+                respCertas--;
             }
+            else
+            {
+                if (perguntaNum == 1)
+                {
+                    pontos = 3.33;
+                    respCertas = 1;
+                    perguntaNum = 1;
+                    lblNumPergunta.Text = perguntaNum.ToString();
+                    btnAnterior.Enabled = false;
+                }
+            }
+            
+            
+
+            MessageBox.Show("Pontos: " + pontos + "Resp certas: " + respCertas);
         }
 
         private string carregaPergunta()
@@ -277,7 +298,7 @@ namespace ProjetoFinal
                         MessageBox.Show("Erro ao substituir o nome");
                     }
 
-                    string savePath = @"C:\Users\Public\Desktop\Certificado " + exame + " - " + nomeAluno + ".pdf";
+                    string savePath = @"C:\Development\Cet-programacao\C#\ProjetoFinal\documentos\Certificado " + exame + " - " + nomeAluno + ".pdf";
                     doc.Save(savePath, new PdfSaveOptions());
 
                     // Open the result for demonstration purposes.

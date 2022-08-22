@@ -24,7 +24,6 @@ namespace ProjetoFinal
             return connection;
         }
        
-
         public string CarregaUtilizador(string username ,string password)
         {
             string nome = "", nif="", user="", pass="", admin="", resposta ="";
@@ -58,7 +57,6 @@ namespace ProjetoFinal
             return resposta;
         }
         
-        
         public void InsereUtilizador(string nome, string nif, string user, string pass,bool isAdmin)
         {
             
@@ -83,7 +81,6 @@ namespace ProjetoFinal
                 MessageBox.Show("Algo correu mal!");
             }  
         }
-        
         
         public void AtualizaPassword(int nif, string password)
         {
